@@ -1,0 +1,30 @@
+
+<link rel="stylesheet" href="/css/table.css">
+<script src="/js/table.js"></script>
+
+<div class="container">
+
+    <input class="mt-3" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search data ..." title="Type in a name">
+    <table class="table table-bordered mt-1" id="myTable" width="100%">
+       
+    <tr>
+        <%if(fileRows.length > 0){%>
+        <% for( let [i ,row] of fileRows[0].entries()) { %>
+      <th onclick="sortTable(<%=i%>)"><%=row%></th>
+      <%}%>
+
+    </tr>
+
+    <% for (let row =1; row < fileRows.length;  row++ ) { %>
+        <tr>
+        <% for (objs of fileRows[row] ) { %>
+            
+                <td><%=objs%></td>
+
+            <% } %>
+        </tr>
+        <% } } %>
+    
+  </table> 
+</div>
+
